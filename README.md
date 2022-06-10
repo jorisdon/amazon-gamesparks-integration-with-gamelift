@@ -1,6 +1,6 @@
 # Multiplayer Session-based Game Hosting on AWS using Amazon GameSparks
 
-![aws provider](https://img.shields.io/badge/provider-AWS-orange?logo=amazon-aws&color=ff9900) ![Build status](https://github.com/aws-samples/amazon-gamelift-testing-toolkit/actions/workflows/build.yml/badge.svg)
+![aws provider](https://img.shields.io/badge/provider-AWS-orange?logo=amazon-aws&color=ff9900) ![Build status](https://github.com/aws-samples/amazon-gamesparks-integration-with-gamelift/actions/workflows/build.yml/badge.svg)
 
 - [Multiplayer Session-based Game Hosting on AWS using Amazon GameSparks](#multiplayer-session-based-game-hosting-on-aws-using-amazon-gamesparks)
 - [Key Features](#key-features)
