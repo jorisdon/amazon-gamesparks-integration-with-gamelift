@@ -1,12 +1,11 @@
 # Multiplayer Session-based Game Hosting on AWS using Amazon GameSparks
 
-* [Key Features](#key-features)
-* [Contents](#contents)
-* [Architecture Diagram](#architecture-diagram)
-* [Deployment](#deployment)
-* [Implementation Overview](#implementation-overview)
-    + [Amazon GameSparks Backend Service](#serverless-backend-service)
-* [License](#license)
+![aws provider](https://img.shields.io/badge/provider-AWS-orange?logo=amazon-aws&color=ff9900) ![Build status](https://github.com/aws-samples/amazon-gamelift-testing-toolkit/actions/workflows/build.yml/badge.svg)
+
+- [Multiplayer Session-based Game Hosting on AWS using Amazon GameSparks](#multiplayer-session-based-game-hosting-on-aws-using-amazon-gamesparks)
+- [Key Features](#key-features)
+- [Architecture Diagram](#architecture-diagram)
+- [License](#license)
 
 This repository contains a solution for multiplayer session-based game hosting on AWS leveraging Amazon GameLift, a fully managed game server hosting solution, with a managed Amazon GameSparks backend service. The solution is designed for getting quickly started with multiplayer game development on MacOS and Windows. It includes infrastructure as code automation, as well as deployment scripts to deploy all the required resources.
 
