@@ -5,7 +5,6 @@ import {AttributeType} from 'aws-cdk-lib/aws-dynamodb';
 import {DynamoTable, LambdaFunction} from 'project-constructs';
 import {SnsEventSource} from 'aws-cdk-lib/aws-lambda-event-sources';
 import {Topic} from 'aws-cdk-lib/aws-sns';
-import { NagSuppressions } from 'cdk-nag';
 import {PolicyStatement, ServicePrincipal, Effect, Role} from 'aws-cdk-lib/aws-iam';
 
 export interface MatchmakingMgmtStackProps extends StackProps {
