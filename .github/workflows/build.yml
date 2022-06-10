@@ -1,0 +1,63 @@
+name: Build
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'packages/**'
+      - '.github/workflows/**'
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/**'
+      - '.github/workflows/**'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Building packages
+    steps:
+      - uses: actions/checkout@v2
+      - uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: install # will run `yarn install` command
+      - uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: bootstrap # will run `yarn install` command
+      - uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: build # will run `yarn build` command
+      - uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: test # will run `yarn test` command
+      - uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: synth # will run `yarn test` command
+
+      - uses: actions/checkout@v2
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ matrix.net }}
+      - name: Setup GameLift dependencies for game
+        run: |
+          cd SampleGame/Game
+          ./install.sh
+      - name: Build with dotnet
+        run: dotnet build --configuration Release
+  savepr:
+    runs-on: ubuntu-latest
+    name: Save PR number if running on PR by dependabot
+    if: github.actor == 'dependabot[bot]'
+    steps:
+      - name: Create Directory and save issue
+        run: |
+          mkdir -p ./pr
+          echo ${{ github.event.number }}
+          echo ${{ github.event.number }} > ./pr/NR
+      - uses: actions/upload-artifact@v2
+        name: Updload artifact
+        with:
+          name: pr
+          path: pr/

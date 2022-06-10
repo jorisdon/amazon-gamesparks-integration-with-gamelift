@@ -1,0 +1,44 @@
+{
+  "name": "infra",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "bin": {
+    "infra": "bin/infra.js"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "files": [
+    "lib",
+    "bin",
+    "config"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk",
+    "synth": "cdk synth -a bin/infra.js",
+    "deploy": "cdk -a cdk.out/assembly-AmazonGamesparksIntegrationWithGamelift-Dev deploy --all",
+    "lint": "eslint --ext .ts --ignore-pattern *.d.ts lib",
+    "lint-fix": "eslint --fix --ext .ts --ignore-pattern *.d.ts lib"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.10",
+    "@types/node": "10.17.27",
+    "aws-cdk": "2.27.0",
+    "cdk-nag": "^2.14.27",
+    "esbuild": "0",
+    "eslint": "^8.13.0",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.4.4",
+    "ts-node": "^9.0.0",
+    "typescript": "~3.9.7"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.27.0",
+    "constructs": "^10.0.0",
+    "matchmaking-mgmt": "^0.0.0",
+    "source-map-support": "^0.5.16"
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "Document" : {
+    "Type" : "Game",
+    "Sections" : {
+      "GameSparks.Core.RequestHandlers" : {
+        "StartMatchmaking" : {
+          "Description" : "start a matchmaking request",
+          "Enabled" : true,
+          "Code" : {
+            "Script" : "// Get the current player ID\nconst currentPlayerId = GameSparks().CurrentPlayer().Id();\n\n// Request a match via the Lambda function\nconst response = GameSparks().Lambda(\"RequestMatchmakingFunction\").Invoke(\n    {\n        \"currentPlayerId\": currentPlayerId\n    }\n);\nconst ticketId = response.Payload.MatchmakingTicket.TicketId;\n\nGameSparks().Logging().Debug(\"Ticket ID is: \" + JSON.stringify(ticketId));\n\n// Store the ticket ID for the matchmaking request in the player data\nconst data = {\n  \"TicketId\": ticketId\n}\nGameSparks().CurrentPlayer().SetData(data);\n\n// Return the ticket ID to the client\nreturn GameSparks().Messaging().Response({\"TicketId\": ticketId});",
+            "ScriptLanguage" : "Javascript_ES5_1"
+          }
+        },
+        "GetMatchmakingInfo" : {
+          "Description" : "Get matchmaking information, including status and optionally connection info, via DynamoDB",
+          "Enabled" : true,
+          "Code" : {
+            "Script" : "// Get the ticket ID from the request field if available, otherwise from the player data\nlet ticketId = message.TicketId;\nif (ticketId === null || ticketId === undefined) {\n  const data = GameSparks().CurrentPlayer().GetData([\"TicketId\"]);\n  if (data.TicketId !== undefined) {\n    ticketId = data.TicketId\n  }\n}\n\nGameSparks().Logging().Debug(\"Ticket ID: \" + ticketId);\n\n// Get the Matchmaking ticket status and connection info from DynamoDB\nconst ddbResult = GameSparks().DynamoDB().GetItem(\"MatchmakingTicket\", { \"ticketId\": ticketId });\nconst status = ddbResult.Item.matchmakingStatus;\nGameSparks().Logging().Debug(\"Ticket data from DynamoDB: \" + JSON.stringify(ddbResult));\n\n// Create a local for the response object, to be returned later\nconst response = {\n  \"Status\": status\n};\n\nif (status === \"MatchmakingSucceeded\") {\n  // If the matchmaking succeeded, we have ConnectionInfo.\n  // Create the ConnectionInfo response field and add it to the response\n  const connectionInfo = {};\n  if (ddbResult.Item.port !== undefined) {\n    connectionInfo.Port = parseInt(ddbResult.Item.port);\n  }\n  if (ddbResult.Item.ip !== undefined) {\n    connectionInfo.IPAddress = ddbResult.Item.ip;\n  }\n  if (ddbResult.Item.dnsName !== undefined) {\n    connectionInfo.DNSName = ddbResult.Item.dnsName;\n  }\n  if (ddbResult.Item.playerSessionId !== undefined) {\n    connectionInfo.PlayerSessionID = ddbResult.Item.playerSessionId;\n  }\n  response.ConnectionInfo = connectionInfo;\n}\n\n// Return the response\nreturn GameSparks().Messaging().Response(response);",
+            "ScriptLanguage" : "Javascript_ES5_1"
+          }
+        }
+      },
+      "GameSparks.Core.Requests" : {
+        "StartMatchmaking" : {
+          "AllowedSources" : [ "Player" ],
+          "ResponseShape" : "StartMatchmakingResponse",
+          "Description" : "start a matchmaking request",
+          "RequestShape" : "StartMatchmakingRequest"
+        },
+        "GetMatchmakingInfo" : {
+          "AllowedSources" : [ "Player" ],
+          "ResponseShape" : "GetMatchmakingInfoResponse",
+          "Description" : "Get matchmaking information, including status and optionally connection info, via DynamoDB",
+          "RequestShape" : "GetMatchmakingInfoRequest"
+        }
+      },
+      "GameSparks.Core.Model" : {
+        "StartMatchmakingRequest" : {
+          "Structure" : {
+            "Description" : "",
+            "Fields" : { }
+          }
+        },
+        "StartMatchmakingResponse" : {
+          "Structure" : {
+            "Description" : "",
+            "Fields" : {
+              "TicketId" : {
+                "Shape" : "String",
+                "Cardinality" : "Required"
+              }
+            }
+          }
+        },
+        "GetMatchmakingInfoRequest" : {
+          "Structure" : {
+            "Description" : "",
+            "Fields" : {
+              "TicketId" : {
+                "Shape" : "String",
+                "Cardinality" : "Optional"
+              }
+            }
+          }
+        },
+        "GetMatchmakingInfoResponse" : {
+          "Structure" : {
+            "Description" : "",
+            "Fields" : {
+              "Status" : {
+                "Shape" : "MatchmakingStatus",
+                "Cardinality" : "Required"
+              },
+              "ConnectionInfo" : {
+                "Shape" : "ConnectionInfo",
+                "Cardinality" : "Optional"
+              }
+            }
+          }
+        },
+        "MatchmakingStatus" : {
+          "Enum" : {
+            "Description" : "Matchmaking ticket status",
+            "Values" : [ "MatchmakingSearching", "PotentialMatchCreated", "MatchmakingSucceeded", "MatchmakingFailed", "MatchmakingTimedOut", "MatchmakingCancelled" ]
+          }
+        },
+        "ConnectionInfo" : {
+          "Structure" : {
+            "Description" : "Connection info for joining a server",
+            "Fields" : {
+              "Port" : {
+                "Shape" : "Integer",
+                "Cardinality" : "Required"
+              },
+              "PlayerSessionID" : {
+                "Shape" : "String",
+                "Cardinality" : "Optional"
+              },
+              "DNSName" : {
+                "Shape" : "String",
+                "Cardinality" : "Optional"
+              },
+              "IPAddress" : {
+                "Shape" : "String",
+                "Cardinality" : "Required"
+              }
+            }
+          }
+        }
+      },
+      "GameSparks.Core.Events" : { }
+    }
+  }
+}

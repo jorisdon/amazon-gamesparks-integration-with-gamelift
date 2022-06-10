@@ -1,0 +1,16 @@
+{
+  "name": "game-server",
+  "version": "0.0.0",
+  "license": "Apache-2.0",
+  "author": "Steve Houël <steve.houel.perso@gmail.com>",
+  "homepage": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "build": "node build.js"
+  },
+  "devDependencies": {
+    "archiver": "^5.3.1",
+    "jest": "^27.5.1"
+  }
+}

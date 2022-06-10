@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "required": [
+    "ticketId",
+    "matchmakingStatus",
+    "ttl"
+  ],
+  "properties": {
+    "ticketId": {
+      "type": "string"
+    },
+    "matchmakingStatus": {
+      "type": "string",
+      "enum": ["MatchmakingSucceeded", "MatchmakingSearching", "PotentialMatchCreated", "MatchmakingFailed", "MatchmakingTimedOut", "MatchmakingCancelled"]
+    },
+    "playerSessionId": {
+      "type": "string"
+    },
+    "ip": {
+      "type": "string",
+      "readOnly": true
+    },
+    "port": {
+      "type": "string",
+      "readOnly": true
+    },
+    "dnsName": {
+      "type": "string",
+      "readOnly": true
+    },
+    "ttl": {
+      "type": "number"
+    }
+  },
+  "additionalProperties": false
+}
