@@ -2740,9 +2740,9 @@ caseless@~0.12.0:
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
 cdk-nag@^2.14.27:
-  version "2.14.27"
-  resolved "https://registry.npmjs.org/cdk-nag/-/cdk-nag-2.14.27.tgz"
-  integrity sha512-+z7Amw0+GxxN4N82oWIO1oXW5lpCzs69xEGdv4ncqeCcnu12puVZFmd2iobVp+e07Q643GWEyShAptzjnK2Z1w==
+  version "2.14.30"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.14.30.tgz#df6fd030d7903327385f203df410f869a44fce43"
+  integrity sha512-OmYvxGc6Dez0bFOfXMVYWLh8FLcYBWDPxN/7qwe3NFM5t10NzGZvY1yWw9GmWc5fGXjeDS4HhRTbgUeXg6Fi8Q==
 
 chalk@^2.0.0:
   version "2.4.2"
