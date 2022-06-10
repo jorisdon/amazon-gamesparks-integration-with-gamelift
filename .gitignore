@@ -106,6 +106,7 @@ cdk.out
 *.js
 *.js.map
 !jest.config.js
+!packages/game-server/*.js
 *.d.ts
 node_modules
 dist
