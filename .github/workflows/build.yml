@@ -31,21 +31,6 @@ jobs:
       - uses: borales/actions-yarn@v3.0.0
         with:
           cmd: test # will run `yarn test` command
-      - uses: borales/actions-yarn@v3.0.0
-        with:
-          cmd: synth # will run `yarn test` command
-
-      - uses: actions/checkout@v2
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: ${{ matrix.net }}
-      - name: Setup GameLift dependencies for game
-        run: |
-          cd SampleGame/Game
-          ./install.sh
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
   savepr:
     runs-on: ubuntu-latest
     name: Save PR number if running on PR by dependabot

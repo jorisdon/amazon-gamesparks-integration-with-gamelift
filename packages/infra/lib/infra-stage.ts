@@ -1,8 +1,8 @@
-import {Aspects, Stage, StageProps} from 'aws-cdk-lib';
+import {Aspects, Stage, StageProps, Stack} from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import {MatchmakingStack} from './matchmaking-stack';
 import {MatchmakingMgmtStack} from 'matchmaking-mgmt';
-import {AwsSolutionsChecks} from 'cdk-nag';
+import {AwsSolutionsChecks, NagSuppressions} from 'cdk-nag';
 
 export interface InfraStageProps extends StageProps {
   readonly projectName: string;
@@ -43,5 +43,21 @@ export class InfraStage extends Stage {
       verbose: true,
       reports: true
     }));
+
+    this.addCdkNagSuppressFindings('AwsSolutions-IAM4', 'Suppress all AwsSolutions-IAM4 findings on MatchmakingMgmtStack.', matchmakingMgmtStack);
+    this.addCdkNagSuppressFindings('AwsSolutions-IAM5', 'Suppress all AwsSolutions-IAM5 findings on MatchmakingMgmtStack.', matchmakingMgmtStack);
+  }
+
+  addCdkNagSuppressFindings(ruleName: string, reason: string, stack: Stack) {
+    NagSuppressions.addStackSuppressions(
+      stack,
+      [
+        {
+          id: ruleName,
+          reason: reason
+        },
+      ],
+      true
+    );
   }
 }
