@@ -35,7 +35,7 @@ export class InfraStage extends Stage {
     // Security checks
     Aspects.of(matchmakingStack).add(new AwsSolutionsChecks({
       verbose: true,
-      reports: true
+      reports: true,
     }));
 
     // Security checks

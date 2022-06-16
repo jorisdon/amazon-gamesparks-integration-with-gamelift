@@ -12,6 +12,7 @@ import {
 } from 'aws-cdk-lib/aws-gamelift';
 import {Bucket} from 'aws-cdk-lib/aws-s3';
 import {Key} from 'aws-cdk-lib/aws-kms';
+import {NagSuppressions} from 'cdk-nag';
 
 export interface MatchmakingStackProps extends StackProps {
   readonly assetBucketName: string;
@@ -63,15 +64,18 @@ export class MatchmakingStack extends Stack {
       assumedBy: new ServicePrincipal('gamelift.amazonaws.com'),
     });
 
-    scriptAccessRole.addToPolicy(new PolicyStatement({
-      actions: [
-        's3:GetObject',
-        's3:GetObjectVersion'
+    assetBucket.grantRead(scriptAccessRole);
+
+    NagSuppressions.addResourceSuppressions(
+      scriptAccessRole,
+      [
+        {
+          id: 'AwsSolutions-IAM5',
+          reason: 'Suppress finding to give permission to Gamelift to access all game server artifacts'
+        },
       ],
-      resources: [
-        assetBucket.bucketArn
-      ]
-    }));
+      true
+    );
 
     // ### Gamelift Fleet components
     const script = new CfnScript(this, 'GameServerScript', {
