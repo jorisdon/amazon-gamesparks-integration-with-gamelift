@@ -13,6 +13,8 @@ import {
 import {Bucket} from 'aws-cdk-lib/aws-s3';
 import {Key} from 'aws-cdk-lib/aws-kms';
 import {NagSuppressions} from 'cdk-nag';
+import {Asset} from 'aws-cdk-lib/aws-s3-assets';
+import path from 'path';
 
 export interface MatchmakingStackProps extends StackProps {
   readonly assetBucketName: string;
@@ -34,31 +36,34 @@ export class MatchmakingStack extends Stack {
     const snsKey = new Key(this, 'SnsKey', {
       enableKeyRotation: true,
     });
+
     const topic = new Topic(this, 'MatchmakingNotificationTopic', {
       displayName: 'Matchmaking Notification topic',
       masterKey: snsKey,
     });
 
-    // Enforce SSL when subscribing / consuming SNS Topic
+    //Enforce SSL when subscribing / consuming SNS Topic
     const topicPolicy = new TopicPolicy(this, 'MatchmakingTopicPolicy', {
       topics: [ topic ],
       policyDocument: new PolicyDocument({
         statements: [
           new PolicyStatement({
-            actions: ["sns:Publish"],
-            principals: [new AnyPrincipal()],
+            actions: [
+              "sns:Publish"
+            ],
+            principals: [new ServicePrincipal('gamelift.amazonaws.com')],
             resources: [topic.topicArn],
-            effect: Effect.DENY,
-            conditions: {
-              "aws:SecureTransport": "false"
-            },
-          })
+          }),
         ],
       })
     });
 
     // ### Realtime server script asset
     const assetBucket = Bucket.fromBucketName(this, 'Asset Bucket', props.assetBucketName);
+
+    // const asset = new Asset(this, 'Asset', {
+    //   path: path.join(__dirname, '../game-server'),
+    // });
 
     const scriptAccessRole = new Role(this, 'GameServerScriptAccessRole', {
       assumedBy: new ServicePrincipal('gamelift.amazonaws.com'),

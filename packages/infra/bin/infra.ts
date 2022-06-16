@@ -20,6 +20,7 @@ new InfraStage(app, `${PROJECT_NAME}-Dev`, {
     account: process.env.CDK_DEFAULT_ACCOUNT,
     region: REGION,
   },
+  projectName: PROJECT_NAME,
   ...config,
 });
 
