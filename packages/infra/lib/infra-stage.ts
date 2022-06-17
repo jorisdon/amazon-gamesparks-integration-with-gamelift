@@ -29,7 +29,7 @@ export class InfraStage extends Stage {
 
     const matchmakingMgmtStack = new MatchmakingMgmtStack(this, 'MatchmakingMgmtStack', {
       matchmakingConfigurationArn: matchmakingStack.matchmakingConfigArn.value,
-      matchmakingTopicArn: matchmakingStack.matchmakingTopicArn.value
+      matchmakingTopicArn: matchmakingStack.matchmakingTopicArn.value,
     });
 
     // Security checks
@@ -43,21 +43,5 @@ export class InfraStage extends Stage {
       verbose: true,
       reports: true
     }));
-
-    this.addCdkNagSuppressFindings('AwsSolutions-IAM4', 'Suppress all AwsSolutions-IAM4 findings on MatchmakingMgmtStack.', matchmakingMgmtStack);
-    this.addCdkNagSuppressFindings('AwsSolutions-IAM5', 'Suppress all AwsSolutions-IAM5 findings on MatchmakingMgmtStack.', matchmakingMgmtStack);
-  }
-
-  addCdkNagSuppressFindings(ruleName: string, reason: string, stack: Stack) {
-    NagSuppressions.addStackSuppressions(
-      stack,
-      [
-        {
-          id: ruleName,
-          reason: reason
-        },
-      ],
-      true
-    );
   }
 }

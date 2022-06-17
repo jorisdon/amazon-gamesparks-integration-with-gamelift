@@ -31,9 +31,7 @@ export class LambdaFunction extends NodejsFunction {
       runtime: Runtime.NODEJS_16_X,
       retryAttempts: 2,
       timeout: Duration.seconds(3),
-      logRetention: RetentionDays.TEN_YEARS,
       architecture: Architecture.ARM_64,
-      insightsVersion: LambdaInsightsVersion.VERSION_1_0_119_0,
       ...props,
     });
 

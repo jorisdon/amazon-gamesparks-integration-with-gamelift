@@ -13,8 +13,6 @@ import {
 import {Bucket} from 'aws-cdk-lib/aws-s3';
 import {Key} from 'aws-cdk-lib/aws-kms';
 import {NagSuppressions} from 'cdk-nag';
-import {Asset} from 'aws-cdk-lib/aws-s3-assets';
-import path from 'path';
 
 export interface MatchmakingStackProps extends StackProps {
   readonly assetBucketName: string;
@@ -24,6 +22,7 @@ export interface MatchmakingStackProps extends StackProps {
 /** CDK Stack containing Matchmaking infrastructure. */
 export class MatchmakingStack extends Stack {
 
+  public snsKey: CfnOutput;
   public matchmakingConfigArn: CfnOutput;
   public matchmakingConfigName: CfnOutput;
   public gameSessionQueueArn: CfnOutput;
@@ -32,27 +31,45 @@ export class MatchmakingStack extends Stack {
   constructor(scope: Construct, id: string, props: MatchmakingStackProps) {
     super(scope, id, props);
 
-    // ### Matchmaking notification topic
-    const snsKey = new Key(this, 'SnsKey', {
-      enableKeyRotation: true,
-    });
-
     const topic = new Topic(this, 'MatchmakingNotificationTopic', {
       displayName: 'Matchmaking Notification topic',
-      masterKey: snsKey,
     });
+    NagSuppressions.addResourceSuppressions(
+      topic,
+      [
+        {
+          id: 'AwsSolutions-SNS2',
+          reason: "Suppress finding as Amazon GameLift cannot publish to an Encrypted Topic - no permission assigned to a Matchmaking configuration to use KMS Key"
+        },
+      ],
+      true
+    );
 
     //Enforce SSL when subscribing / consuming SNS Topic
     const topicPolicy = new TopicPolicy(this, 'MatchmakingTopicPolicy', {
       topics: [ topic ],
       policyDocument: new PolicyDocument({
+        assignSids: true,
         statements: [
           new PolicyStatement({
             actions: [
-              "sns:Publish"
+              'sns:Publish'
             ],
             principals: [new ServicePrincipal('gamelift.amazonaws.com')],
             resources: [topic.topicArn],
+          }),
+          new PolicyStatement({
+            actions: [
+              'sns:Publish'
+            ],
+            effect: Effect.DENY,
+            principals: [new AnyPrincipal()],
+            resources: [topic.topicArn],
+            conditions: {
+              'Bool': {
+                'aws:SecureTransport': 'false'
+              }
+            }
           }),
         ],
       })
@@ -61,26 +78,17 @@ export class MatchmakingStack extends Stack {
     // ### Realtime server script asset
     const assetBucket = Bucket.fromBucketName(this, 'Asset Bucket', props.assetBucketName);
 
-    // const asset = new Asset(this, 'Asset', {
-    //   path: path.join(__dirname, '../game-server'),
-    // });
-
     const scriptAccessRole = new Role(this, 'GameServerScriptAccessRole', {
       assumedBy: new ServicePrincipal('gamelift.amazonaws.com'),
     });
 
-    assetBucket.grantRead(scriptAccessRole);
-
-    NagSuppressions.addResourceSuppressions(
-      scriptAccessRole,
-      [
-        {
-          id: 'AwsSolutions-IAM5',
-          reason: 'Suppress finding to give permission to Gamelift to access all game server artifacts'
-        },
+    scriptAccessRole.addToPrincipalPolicy(new PolicyStatement({
+      actions: [
+        's3:GetObject',
+        's3:GetObjectVersion'
       ],
-      true
-    );
+      resources: [`${assetBucket.bucketArn}/${props.assetObjectKey}`]
+    }));
 
     // ### Gamelift Fleet components
     const script = new CfnScript(this, 'GameServerScript', {
