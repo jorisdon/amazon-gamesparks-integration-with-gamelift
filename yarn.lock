@@ -15,6 +15,11 @@
   resolved "https://registry.yarnpkg.com/@aws-lambda-powertools/commons/-/commons-0.10.0.tgz#5489ec7909f0cb756c083f13e4337fe0aae60dad"
   integrity sha512-p2YDo2XIniMEw1a+NtPMvcALnpwJKpznOcKVZyEzwUEvluLl/cJwwVa0c4y6ye6iw+xD0Tp1T7I2t8gKYtU5zQ==
 
+"@aws-lambda-powertools/commons@^0.11.0":
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/@aws-lambda-powertools/commons/-/commons-0.11.0.tgz#4ab5355a36ceb5190d636fc8145da7bcc1ae0119"
+  integrity sha512-3kOq1lqcyRc7K/UlwD3XC0GXc5ckatanu0lOGFz7VJLjlv4VSCBC7KomGLoSInKGCdieJnmkg0ZcJnKD9RqJlQ==
+
 "@aws-lambda-powertools/logger@^0.10.0":
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/@aws-lambda-powertools/logger/-/logger-0.10.0.tgz#6dad69a8a3bdc66a09fbb7c79debc4cf70754f15"
@@ -25,13 +30,13 @@
     lodash.merge "^4.6.2"
     lodash.pickby "^4.6.0"
 
-"@aws-lambda-powertools/tracer@^0.10.0":
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/@aws-lambda-powertools/tracer/-/tracer-0.10.0.tgz#303d82e541474d8bd766204de32d656db1c7dbb6"
-  integrity sha512-RDlrJhPe4C/PvFOrIUDEnf/6mvpVdFjmHI+WYsXWbMvQwfvRkN9Bv+0m2JMaJg+n7vm/ho1qAC7TvyhUPYZPrg==
+"@aws-lambda-powertools/tracer@^0.11.0":
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/@aws-lambda-powertools/tracer/-/tracer-0.11.0.tgz#e873924890a27a884ec904e8918ffefe99ebc92d"
+  integrity sha512-EzyJv2tU1OV2cfB9A9DJrzQYjRHBMqjdImRzphNqhqSEkhyTyanE2vX4yb+Fcj00HWExXhTGfmLiMMERpGwtTw==
   dependencies:
-    "@aws-lambda-powertools/commons" "^0.10.0"
-    aws-xray-sdk-core "^3.3.4"
+    "@aws-lambda-powertools/commons" "^0.11.0"
+    aws-xray-sdk-core "^3.3.6"
 
 "@aws-sdk/service-error-classification@^3.4.1":
   version "3.78.0"
@@ -2302,7 +2307,7 @@ aws-sdk@^2.1099.0:
     uuid "8.0.0"
     xml2js "0.4.19"
 
-aws-xray-sdk-core@^3.3.4:
+aws-xray-sdk-core@^3.3.6:
   version "3.3.6"
   resolved "https://registry.yarnpkg.com/aws-xray-sdk-core/-/aws-xray-sdk-core-3.3.6.tgz#57315496e13d41f15decae047bea6b2248e5d767"
   integrity sha512-5pJnix2mNBshzBtVsJxus3YOX2gM8+AirjyAJ0U+4ZkLRAcofNzBJUabZyHZPoVKud/YjEmcRr36bh4T3vOL2A==
