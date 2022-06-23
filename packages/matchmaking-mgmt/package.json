@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@aws-lambda-powertools/logger": "^0.10.0",
-    "@aws-lambda-powertools/tracer": "^0.10.0",
+    "@aws-lambda-powertools/tracer": "^0.11.0",
     "@middy/core": "^3.0.4",
     "ajv": "^8.11.0",
     "ajv-formats": "^2.1.1",
