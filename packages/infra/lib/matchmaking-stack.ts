@@ -11,7 +11,6 @@ import {
   CfnScript
 } from 'aws-cdk-lib/aws-gamelift';
 import {Bucket} from 'aws-cdk-lib/aws-s3';
-import {Key} from 'aws-cdk-lib/aws-kms';
 import {NagSuppressions} from 'cdk-nag';
 
 export interface MatchmakingStackProps extends StackProps {
@@ -39,7 +38,7 @@ export class MatchmakingStack extends Stack {
       [
         {
           id: 'AwsSolutions-SNS2',
-          reason: "Suppress finding as Amazon GameLift cannot publish to an Encrypted Topic - no permission assigned to a Matchmaking configuration to use KMS Key"
+          reason: "Suppress finding as Amazon GameLift cannot publish to an Encrypted Topic - no permission assigned to a Matchmaking configuration to use KMS Key. Only Gamelift service message are sent to this Topic without possibility to add custom text from User input."
         },
       ],
       true

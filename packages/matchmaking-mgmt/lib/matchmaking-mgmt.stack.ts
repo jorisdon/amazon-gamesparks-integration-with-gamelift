@@ -58,7 +58,7 @@ export class MatchmakingMgmtStack extends Stack {
       [
         {
           id: 'AwsSolutions-IAM5',
-          reason: "Suppress IAM Wildcard finding for CloudWatch default lambda policy"
+          reason: "Suppress IAM Wildcard findings for CloudWatch and XRay policies as actions required to have wildcard action as no resources restriction is allowed. Highest risk is to being able to write Logs events to an undesired logGroup."
         },
       ],
       true
@@ -89,7 +89,7 @@ export class MatchmakingMgmtStack extends Stack {
       [
         {
           id: 'AwsSolutions-IAM5',
-          reason: "Suppress IAM Wildcard finding as Gamelift StartMatchmaking does not support resource-level permissions"
+          reason: "Suppress IAM Wildcard finding as Gamelift StartMatchmaking does not support resource-level permissions. High risk is to being able to start a matchmaking request to an undesired matchmaking configuration in case the MATCHMAKING_CONFIGURATION_NAME environment variable has been override."
         },
       ],
       true
@@ -147,7 +147,7 @@ export class MatchmakingMgmtStack extends Stack {
       [
         {
           id: 'AwsSolutions-IAM5',
-          reason: "Suppress IAM Wildcard finding for CloudWatch logGroup permissions"
+          reason: "Suppress IAM Wildcard findings for CloudWatch and XRay policies as actions required to have wildcard action as no resources restriction is allowed. Highest risk is to being able to write Logs events to an undesired logGroup."
         },
       ],
       true
