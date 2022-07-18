@@ -22,7 +22,7 @@
     "lint-fix": "eslint --fix --ext .ts --ignore-pattern *.d.ts src"
   },
   "dependencies": {
-    "@aws-lambda-powertools/logger": "^0.11.0",
+    "@aws-lambda-powertools/logger": "^1.0.1",
     "@aws-lambda-powertools/tracer": "^1.0.1",
     "@middy/core": "^3.0.4",
     "ajv": "^8.11.0",
