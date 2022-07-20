@@ -10,10 +10,10 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@aws-lambda-powertools/commons@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@aws-lambda-powertools/commons/-/commons-1.0.1.tgz#05d573b2c4e589fcd111650d8e93e4652fc90617"
-  integrity sha512-XcTdczAJL4Z/cqErYkOJYcHt0s4hgOD6YiKtsA9GVKpjkquFZJE9yoRGiOnlwlyhOF7+b5OnZoMbj1QKn2effQ==
+"@aws-lambda-powertools/commons@^1.0.1", "@aws-lambda-powertools/commons@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@aws-lambda-powertools/commons/-/commons-1.0.2.tgz#4fdfc656ae2214b20bc18cfbe8da44bd35bb77e9"
+  integrity sha512-9i/fs8TvMbLOnzVmuYILC4IQ2ZR1u8FUpI1EoPqUFY1YUcZ4MgU7zdmO0Mr6D4pIuVR42ZTLe7gV7+Mxsv7gKQ==
 
 "@aws-lambda-powertools/logger@^1.0.1":
   version "1.0.1"
@@ -26,11 +26,11 @@
     lodash.pickby "^4.6.0"
 
 "@aws-lambda-powertools/tracer@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@aws-lambda-powertools/tracer/-/tracer-1.0.1.tgz#c2dbbc2d9534756f2ddc596f57132a928f9c217c"
-  integrity sha512-3F3N3cz5hXsII/LcW0RQIvfB9G/g/WYyA1C/B/+Iz1ZVPDqs33RWIvK+X/dgXlvUeG/LwrxVSAKj6MVcaFy3NQ==
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@aws-lambda-powertools/tracer/-/tracer-1.0.2.tgz#1ec4f35b0fb79f836a85413a42da1d331004469e"
+  integrity sha512-G/cPI3vigE7YmUylD37KKQ0HlSsqiWCg2tFhMOFBwnYXusWPzA4GYd4oBhcT/dyKtHi0i5cr1mEdaO8PHgXyxA==
   dependencies:
-    "@aws-lambda-powertools/commons" "^1.0.1"
+    "@aws-lambda-powertools/commons" "^1.0.2"
     aws-xray-sdk-core "^3.3.6"
 
 "@aws-sdk/service-error-classification@^3.4.1":
