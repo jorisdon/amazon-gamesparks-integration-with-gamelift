@@ -10,7 +10,7 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@aws-lambda-powertools/commons@^1.0.1", "@aws-lambda-powertools/commons@^1.0.2":
+"@aws-lambda-powertools/commons@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@aws-lambda-powertools/commons/-/commons-1.0.2.tgz#4fdfc656ae2214b20bc18cfbe8da44bd35bb77e9"
   integrity sha512-9i/fs8TvMbLOnzVmuYILC4IQ2ZR1u8FUpI1EoPqUFY1YUcZ4MgU7zdmO0Mr6D4pIuVR42ZTLe7gV7+Mxsv7gKQ==
@@ -2293,9 +2293,9 @@ aws-cdk@2.33.0:
     fsevents "2.3.2"
 
 aws-sdk@^2.1099.0:
-  version "2.1178.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1178.0.tgz#b0f4b67494e7009427cd7059a3d908d333633fdb"
-  integrity sha512-ZsFuVbTp9aakAIZ7lTJspuCzSw5VRIDF0bUmSZmE2tc/X/haTu/TrMeWgwPjyLkQtdhfjChCyI71V+ADqFkjsA==
+  version "2.1179.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1179.0.tgz#c53b44e2f2137159d6092e1fd17d99e20184894f"
+  integrity sha512-QAfefyo20L6wCgWu1g0sOmH7AM822E7Wmdrp1AbFwPpXUBes8uKei2AQqkJmxaDnhAxyk79V7oEiosZYVZOBvg==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
