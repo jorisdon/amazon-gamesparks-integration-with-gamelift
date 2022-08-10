@@ -21,7 +21,7 @@
     "@types/node": "18.6.5",
     "aws-cdk-lib": "2.36.0",
     "constructs": "^10.0.0",
-    "esbuild": "^0.14.47",
+    "esbuild": "^0.15.0",
     "eslint": "^7.32.0",
     "typescript": "~4.7.3"
   },
