@@ -10,7 +10,7 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@aws-lambda-powertools/commons@^1.0.2", "@aws-lambda-powertools/commons@^1.1.0":
+"@aws-lambda-powertools/commons@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@aws-lambda-powertools/commons/-/commons-1.1.0.tgz#b6cb7e6e70eaf6d1947bc6e377958b1467025291"
   integrity sha512-SHbdUH7S2keBJQbAgXENbu1bVemHfSPvNZBvgiK1yoT7WYffl8qey3amP6GAgZA2761bhy9XawI2apOqaGHWBA==
@@ -1433,9 +1433,9 @@
     write-file-atomic "^4.0.1"
 
 "@middy/core@^3.0.4":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@middy/core/-/core-3.1.1.tgz#c343d05d84cd489b87d97f7858b599ac375e92cf"
-  integrity sha512-Og6Z1BrRWTYWDs9KF5Zb80JYv2fNwVpyMYAuG4+2fc0e8UORG4CAyccbc8SvRAReL9rLQY8pjp9WE4cdhDg3DQ==
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@middy/core/-/core-3.2.0.tgz#db1956c0f5ff7caffc5bbbf266b3d1eda8a2819a"
+  integrity sha512-5oS/SZdfaq+SQcC4zsub82lHRs6wFj6sQa0duDat3UodEURj9S1DqZ0NUoBhJ46bSSvEBFBh4jF1oy0gVnil/Q==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
