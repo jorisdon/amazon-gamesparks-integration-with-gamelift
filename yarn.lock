@@ -10,17 +10,17 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@aws-lambda-powertools/commons@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@aws-lambda-powertools/commons/-/commons-1.1.1.tgz#6d43a8a741f28d3307e020200bd70c6910655523"
-  integrity sha512-EUk+2Q7GNQwLYyCfV8m+yso3ELrRVCX8wbZdgl2i1XCUmoxskwEV/j4T8+jxMMms/f7k+rDM7Jwh4+6vmONieQ==
+"@aws-lambda-powertools/commons@^1.1.1", "@aws-lambda-powertools/commons@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@aws-lambda-powertools/commons/-/commons-1.2.0.tgz#5a9f5f12b81dee0cca345acc0f1b0475d8380576"
+  integrity sha512-0cEFA4yy51xkcanzXwO+NWmrK+pKLuO4l/HnWT4Fz2CS0clkuw2cPKoPMS9lhaV0EhAHOpdVASn26qh+9t8HAw==
 
 "@aws-lambda-powertools/logger@^1.0.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@aws-lambda-powertools/logger/-/logger-1.1.1.tgz#7aba28ac8f61c2f6397a2677abd7be21e7656e2d"
-  integrity sha512-zr9dw3k9ZT1LDOmOQn0w7CWWzPyXhAn6DcOdq2WFdRIdne3YOG1qmF/jjTs5A2CGht8mN/z8MsWPDQAx89SWwQ==
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@aws-lambda-powertools/logger/-/logger-1.2.0.tgz#30cb41f1fcb39b348e2ba5ab7a2502cbfb4c74a7"
+  integrity sha512-4IzHzpwGl0beT8ZOC/YyqIZCmxu/YY66MuITVS1jr0ajPiSvOudoAH62EkBMq/txws1OAYaAiJMssQYTdKAtKg==
   dependencies:
-    "@aws-lambda-powertools/commons" "^1.1.1"
+    "@aws-lambda-powertools/commons" "^1.2.0"
     lodash.clonedeep "^4.5.0"
     lodash.merge "^4.6.2"
     lodash.pickby "^4.6.0"
