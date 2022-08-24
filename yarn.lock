@@ -1433,9 +1433,9 @@
     write-file-atomic "^4.0.1"
 
 "@middy/core@^3.0.4":
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/@middy/core/-/core-3.2.1.tgz#16f12c9ac9432ff55555cef5d698ba5b523bb887"
-  integrity sha512-QYElg97KOknq/ekXJD/wbIcbfj+c35T+kNuHX7QNPlmUNnMGuVj1OrK1cvrI5lBCtPWhALu8V8S7dZyIwOiDZQ==
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@middy/core/-/core-3.2.2.tgz#068ab9c97774dd4adf90c736b89a034cd588b470"
+  integrity sha512-kDQhHw3GP8djl0s1NuIXLs4JFAbAVYOGfmoG8/qHJG/cT3rLN2ww4I4nma3aWdRwNCQiq8l4Qg6dUENz+h3fCg==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
