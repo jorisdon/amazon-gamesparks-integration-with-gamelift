@@ -10,7 +10,7 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@aws-lambda-powertools/commons@^1.2.0", "@aws-lambda-powertools/commons@^1.2.1":
+"@aws-lambda-powertools/commons@^1.2.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@aws-lambda-powertools/commons/-/commons-1.2.1.tgz#4d0ba33576b8ee379aeff3a51087ab88f881cf40"
   integrity sha512-wHdAgzXQfRqcm6kIuxrQjKL8x02sVTMc7rcMJPkHU1DsGNL7Z3g0H+tkrlmFimGkRqPv724J2OqNdEvBJKaoMQ==
@@ -2911,9 +2911,9 @@ console-control-strings@^1.1.0:
   integrity sha512-ty/fTekppD2fIwRvnZAVdeOiGd1c7YXEixbgJTNzqcxJWKQnjJ/V1bNEEE6hygpM3WjwHFUVK6HTjWSzV4a8sQ==
 
 constructs@^10.0.0:
-  version "10.1.85"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.1.85.tgz#d4b9b95c314636d47cef696485a77c05bcfe921f"
-  integrity sha512-n5nr86NQKwUkUPPuDnFvHWetGowJn5a+/Ye3yNxyrXfViYwQtXqFmqBD+WQdsLrXeg5NezSFPK78SBVYkgFTkg==
+  version "10.1.86"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.1.86.tgz#007215a46998d033e2e9ae1511fff0ac2e67e7d5"
+  integrity sha512-yEC7T93oQU6pEhJlooqSq5JKNGOqMiOvmmnZtJxFBOmCNhUDddNmewb0/9K+FPMFMJn4MQ4G0qNGAaEqVgAyFg==
 
 conventional-changelog-angular@^5.0.12:
   version "5.0.13"
