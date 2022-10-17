@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@types/jest": "^28.1.2",
-    "@types/node": "18.8.5",
+    "@types/node": "18.11.0",
     "aws-cdk": "2.46.0",
     "cdk-nag": "^2.14.27",
     "esbuild": "0",
