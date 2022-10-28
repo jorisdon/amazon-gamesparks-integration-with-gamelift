@@ -10,7 +10,7 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@aws-lambda-powertools/commons@^1.3.0", "@aws-lambda-powertools/commons@^1.4.0":
+"@aws-lambda-powertools/commons@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@aws-lambda-powertools/commons/-/commons-1.4.0.tgz#05b358645f41e1f3e8af1d7b98506f7af29a613e"
   integrity sha512-8Y473kxNI8LIY/uhnk+2nsHQXgjrEL3WjZLk9L++UZ+nFRE2bJaSIWVW5V+IJJD2uPSvdhvdD1zvoLRsNT0+0w==
@@ -2730,9 +2730,9 @@ case@1.6.3:
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
 cdk-nag@^2.14.27:
-  version "2.19.4"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.19.4.tgz#bb05781a610ed05513142cbff1697402aa27ec5b"
-  integrity sha512-pi3IrCyYAAJHLffkgiaDUV7xqJhh0A87NY68Tl1DgUcEr9y+lAcuJ9OEQZNohuWw0cslVdnEBh2jMRlZ0xYXYg==
+  version "2.19.5"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.19.5.tgz#0902a0cb95ece2f8661fa329611f6284a0cdbf2f"
+  integrity sha512-sM15E108aBOPvoCUAlIVG3qigiHCOH4W0zgJdws6zrownv7FRAHdIjkT9ohfBGqTgfB9ig7PVwRH9u0VLKzBNw==
 
 chalk@4.1.0:
   version "4.1.0"
