@@ -1,5 +1,8 @@
 # `game-client`
-This repository contains a sample Unity game client that authenticates via Amazon GameSparks and connects into GameLift Real Time Server information returned by FlexMatch
+
+This repository contains a sample Unity game client that authenticates via Amazon GameSparks and connects into GameLift Realtime Server information returned by FlexMatch.
+
+This sample code is made available under the Apache-2.0 license. See the LICENSE file.
 
 # Requirements
 An AWS account with access to GameLift: https://aws.amazon.com/getting-started/
@@ -13,47 +16,44 @@ SDK's and Libraries
 - GameSparks client SDK: https://docs.aws.amazon.com/gamesparks/latest/dg/set-up.html#_install_the_gamesparks_client_sdk
 - Demigiant DOTween: http://dotween.demigiant.com/
 
-# Installing the sample
-## Installing the GameLift Real Time Server SDK
+You must also have set up the Amazon GameSparks game backend for MegaFrogRace according to the instructions found in [the blog post that accompanies this solution](https://aws.amazon.com/blogs/gametech/building-a-multiplayer-game-with-amazon-gamesparks-and-amazon-gamelift/), and generated the client code from the AWS Management Console.
 
-1. Build the GameLift Realtime Client SDK making sure to target .Net 4.5
-2. From the GameLift Client SDK add the following files to the Unity project
-    - GameScaleRealTimeClientSDKNet45.dll
-    - Google.Protobuf.dll
-    - Log4net.dll
-    - SuperSocket.ClientEngine.dll
-    - WebSocket4Net.dll
+# Installing the sample
+
+## Installing the GameLift Realtime Client SDK
+
+1. Extract the [GameLift Realtime Client SDK](https://aws.amazon.com/gamelift/getting-started/ ) .zip file
+2. Load up the solution in Visual Studio
+3. Restore the NuGet packages and build it from Visual Studio, making sure to target .Net 4.5
+4. Copy the following built files to the Unity project, which you can find in the "MegaFrogRace" folder:
+    * GameScaleRealTimeClientSDKNet45.dll
+    * Google.Protobuf.dll
+    * Log4net.dll
+    * SuperSocket.ClientEngine.dll
+    * WebSocket4Net.dll
 
 ## Installing the Demigiant DOTween library
 
-1. Download DOTween from http://dotween.demigiant.com/download and unzip the file into Assets/ folder
-2. Close/re-open Unity
-3. Go to Tools -> Demigiant -> DOTween Utility Panel 
-4. Click “Setup DOTween…”
+1. Extract the DOTween package, which you can [download from the Demigiant website](http://dotween.demigiant.com/download), and copy the extracted folder to the Assets folder in the Unity project.
+2. (re-)open Unity and load the MegaFrogRace project. If you see any build errors in the console, you can ignore these at this point.
+3. Go to _Tools_ → _Demigiant_ → _DOTween Utility Panel_ and select _Setup DOTween…_
 
+## Installing Amazon GameSparks Client SDK plugin
 
-## Installing Amazon GameSparks Client SDK
+1. In Unity, go to _Window_ -> _Package Manager_ -> _+_ -> _Add package from tarball_
+2. Select the _AmazonGameSparks.tgz_ file, which you can download from [here](https://docs.aws.amazon.com/gamesparks/latest/dg/set-up.html#_install_the_gamesparks_client_sdk).
+3. The Amazon GameSparks client SDK should now be installed!
 
-1. In Unity, go to Window -> Package Manager -> + -> Add package from tarball 
-2. Select the AmazonGameSparks.tgz file
-3. Go to GameSparks menu -> Setup Scene -> Create connection
-4. An Assets/Amazon/GameSparks/Connection.asset appears in your project folder.
-5. In GameSparks, in the navigation panel select Dev. In the Dev stage configuration section, copy the Key to your clipboard.
-6. In Unity, select the Connection object, and then in the Inspector panel, in the Game Key field, paste your key.
-7. Open the title scene
-8. Click on Canvas
-9. Drag the Connection object from the Project window onto the "Connection Scriptable Object" field in the Title Controller script
+## Loading the generated GameSparks Client Code into the project
 
-## Installing the Amazon GameSparks client code
+1. Extract the Amazon GameSparks Client Code .zip file that you generated from the AWS Management Console.
+2. In Unity, in the _Project pane_, browse to the GameSparks folder.
+3. Right-click inside the folder and select _Import New Asset_.
+4. Select the _MegaFrogRaceOperations.cs_ file from the extracted Client Code.
 
-1. In GameSparks, on the Dev page, in the Snapshot card, choose Actions, and then choose Generate code.
-2. On the Generate Code for Dev Stage dialog box, make sure that Game client platform is set to Unity and that Language is set to C#.
-3. Choose Generate Code.
-4. After the code has been generated, choose Download. 
-5. Open the .ZIP file you downloaded. 
-6. Extract the MegaFrogRaceOperations.cs file.
-7. In Unity, in the Project pane, browse to the GameSparks folder.
-8. Right-click inside the folder and choose Import New Asset.
-9. Choose MegaFrogRaceOperations.cs.
+## Setting up the GameSparks connection
 
-This sample code is made available under the Apache-2.0 license. See the LICENSE file.
+1. On the AWS Management Console, navigate to the Amazon GameSparks console, then navigate to _MegaFrogRace’s Dev stage_. Under _Dev stage configuration_, you should see a _Key_; copy this to your clipboard for later.
+2. In Unity, go to _GameSparks menu_ → _Setup Scene_ → _Create connection_. An _Assets/Amazon/GameSparks/Connection.asset_ should appear in your project folder.
+3. Select the Connection object, and then in the _Inspector panel_, in the _Game Key field_, paste the key we copied earlier.
+4. Open the title scene, click on _Canvas_, then drag the _Connection object_ from the _Project window_ onto the _“Connection Scriptable Object”_ field in the _Title Controller_ script. The Amazon GameSparks Client SDK is now set up and connected with your GameSparks backend.

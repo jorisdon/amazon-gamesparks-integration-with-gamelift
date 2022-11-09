@@ -11,6 +11,8 @@ This repository contains a solution for multiplayer session-based game hosting o
 
 This Readme includes the architecture overview, as well as deployment instructions and documentation for the Amazon GameSparks backend services of the solution.
 
+This solution is accompanied by a blog post: [_Building a multiplayer game with Amazon GameSparks and Amazon GameLift_](https://aws.amazon.com/blogs/gametech/building-a-multiplayer-game-with-amazon-gamesparks-and-amazon-gamelift/).
+
 **Note**: _“The sample code; software libraries; command line tools; proofs of concept; templates; or other related technology (including any of the foregoing that are provided by our personnel) is provided to you as AWS Content under the AWS Customer Agreement, or the relevant written agreement between you and AWS (whichever applies). You should not use this AWS Content in your production accounts, or on production or other critical data. You are responsible for testing, securing, and optimizing the AWS Content, such as sample code, as appropriate for production grade use based on your specific quality control practices and standards. Deploying AWS Content may incur AWS charges for creating or using AWS chargeable resources, such as running Amazon EC2 instances or using Amazon S3 storage.”_
 
 # Key Features
