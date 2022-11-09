@@ -16,15 +16,15 @@ SDK's and Libraries
 - GameSparks client SDK: https://docs.aws.amazon.com/gamesparks/latest/dg/set-up.html#_install_the_gamesparks_client_sdk
 - Demigiant DOTween: http://dotween.demigiant.com/
 
-You must also have set up the Amazon GameSparks game backend for MegaFrogRace according to the instructions found in [the blog post that accompanies this solution](https://aws.amazon.com/blogs/gametech/building-a-multiplayer-game-with-amazon-gamesparks-and-amazon-gamelift/), and generated the client code from the AWS Management Console.
+You must also have set up the Amazon GameSparks game backend for MegaFrogRace according to the instructions found in [the blog post that accompanies this solution](https://aws.amazon.com/blogs/gametech/building-a-multiplayer-game-with-amazon-gamesparks-and-amazon-gamelift/), and generated the client code from the AWS Management Console as per the instructions found in the blog post.
 
 # Installing the sample
 
 ## Installing the GameLift Realtime Client SDK
 
-1. Extract the [GameLift Realtime Client SDK](https://aws.amazon.com/gamelift/getting-started/ ) .zip file
-2. Load up the solution in Visual Studio
-3. Restore the NuGet packages and build it from Visual Studio, making sure to target .Net 4.5
+1. Extract the [GameLift Realtime Client SDK](https://aws.amazon.com/gamelift/getting-started/) .zip file
+2. Load up the realtime client SDK solution in Visual Studio
+3. Restore the NuGet packages and build the project from Visual Studio, making sure to target .Net 4.5
 4. Copy the following built files to the Unity project, which you can find in the "MegaFrogRace" folder:
     * GameScaleRealTimeClientSDKNet45.dll
     * Google.Protobuf.dll
